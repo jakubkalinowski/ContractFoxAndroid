@@ -134,9 +134,14 @@
             android:name=".EstimateActivity"
             android:label="@string/title_activity_estimate"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MessageQue"></activity>
 
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".Message_Room" />
+        <activity android:name=".PicGalleryActivity" />
+        <activity android:name=".GalleryView"></activity>
+        <activity android:name=".MessageQue"></activity>
         <activity android:name=".Activity.ChatListActivity"></activity>
+
     </application>
 
 </manifest>
