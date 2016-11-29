@@ -143,6 +143,7 @@ public class SpecificList extends AppCompatActivity {
 
                 Intent i = new Intent(SpecificList.this, SearchViewListActivity.class);
                 i.putExtra(  "serachedItem" , titleString );
+                i.putExtra("flag" , true);
                 startActivity(i);
             }
         });

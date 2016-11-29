@@ -76,7 +76,6 @@
     <!-- CONTRACTOR'S PROFILE -->
     <string name="company_name">Jacks Construction Co.</string>
     <string name="review_amount">45 reviews</string>
-    <string name="brief_description">Brief Description</string>
     <string name="estimate_button">$ Request an Estimate $</string>
     <string name="title_activity_map_fragment">Map</string>
     <string name="address">151 Andrea Ln. Felton CA 95018</string>
@@ -99,6 +98,9 @@
     <string name="title_activity_skill_set">SkillSetActivity</string>
     <string name="title_activity_reviews">ReviewsActivity</string>
     <string name="title_activity_maps">Map</string>
+
+
+
 
 
     <!-- PRICE ESTIMATE -->
@@ -166,6 +168,14 @@
         <item>3:00PM-8:00PM</item>
     </string-array>
     <string name="saveBookingTimeText">save booking</string>
+    <string name="dialog_title_edit_contract_contractor">Pick an option</string>
+    <string name="edit_contract_option">Edit Contract</string>
+    <string name="delete_contract_option">Delete Contract</string>
+    <string name="dialog_ok_contract_edit">OK</string>
+    <string name="edit_description_dialog_title">Edit Description</string>
+    <string name="edit_description_dialog_hint">New Description</string>
+    <string name="edit_description_dismiss_dialog_button_text">Cancel</string>
+    <string name="edit_description_positive_button_text">OK</string>
 
     <!--For skillsets-->
     <!--Interior-->
@@ -203,7 +213,9 @@
     <string name="choose_skills">Choose one or more skills:</string>
 
 
+
     <!--navigation_drawer_menu-->
     <string name="navigation_drawer_availability_string">My Availability</string>
+
 
 </resources>

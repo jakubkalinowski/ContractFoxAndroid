@@ -1,6 +1,5 @@
 package com.example.jakubkalinowski.contractfoxandroid.Model;
 
-import com.example.jakubkalinowski.contractfoxandroid.Contractor;
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
@@ -15,11 +14,11 @@ import java.util.Map;
 public class ContractorSingleDaySchedule {
     public ContractorSingleDaySchedule(ContractorDutySession morningSession,
                                        ContractorDutySession eveningSession,
-                                       Boolean availableAllDay, String readableTime,
+                                       Boolean availableThisDay, String readableTime,
                                        long timeInMilliseconds) {
         this.morningSession = morningSession;
         this.eveningSession = eveningSession;
-        this.availableAllDay = availableAllDay;
+        this.availableThisDay = availableThisDay;
         this.readableTime = readableTime;
         this.timeInMilliseconds = timeInMilliseconds;
     }
@@ -44,12 +43,12 @@ public class ContractorSingleDaySchedule {
         this.eveningSession = eveningSession;
     }
 
-    public Boolean getAvailableAllDay() {
-        return availableAllDay;
+    public Boolean getAvailableThisDay() {
+        return availableThisDay;
     }
 
-    public void setAvailableAllDay(Boolean availableAllDay) {
-        this.availableAllDay = availableAllDay;
+    public void setAvailableThisDay(Boolean availableThisDay) {
+        this.availableThisDay = availableThisDay;
     }
 
     public String getReadableTime() {
@@ -62,7 +61,7 @@ public class ContractorSingleDaySchedule {
 
     ContractorDutySession morningSession;
     ContractorDutySession eveningSession;
-    Boolean availableAllDay;
+    Boolean availableThisDay;
     String readableTime;
 
     public long getTimeInMilliseconds() {
@@ -75,7 +74,7 @@ public class ContractorSingleDaySchedule {
 
     @Override
     public String toString() {
-        return ""+new Boolean(availableAllDay).toString() + getTimeInMilliseconds() +
+        return ""+new Boolean(availableThisDay).toString() + getTimeInMilliseconds() +
                 getMorningSession().toString()+getEveningSession().toString();
     }
 

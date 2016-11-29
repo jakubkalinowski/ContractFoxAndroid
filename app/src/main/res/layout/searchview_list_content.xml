@@ -26,11 +26,18 @@
                 android:id="@+id/linear_id"
                 android:orientation="horizontal">
 
-                <RadioButton
+                <!--<RadioButton-->
+                    <!--android:layout_width="40dp"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--android:text=""-->
+                    <!---->
+                    <!--android:id="@+id/radio_ID"-->
+                    <!--android:layout_height="40dp" />-->
+                <CheckBox
                     android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_margin="10dp"
-                    android:text=""
-                    android:layout_height="40dp" />
+                    android:id="@+id/radio_ID"/>
 
                 <ImageView
                     android:layout_width="90dp"

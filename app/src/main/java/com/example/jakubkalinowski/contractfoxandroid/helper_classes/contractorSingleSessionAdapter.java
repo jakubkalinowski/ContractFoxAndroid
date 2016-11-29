@@ -1,5 +1,6 @@
 package com.example.jakubkalinowski.contractfoxandroid.helper_classes;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,12 +25,14 @@ public class ContractorSingleSessionAdapter extends RecyclerView.Adapter<Contrac
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView serviceTitle, serviceDate, serviceStartTime, serviceEndTime;
+        private CardView serviceCardView;
         public MyViewHolder(View view){
             super(view);
             serviceTitle = (TextView) view.findViewById(R.id.service_title);
             serviceDate = (TextView) view.findViewById(R.id.service_date);
             serviceStartTime = (TextView) view.findViewById(R.id.service_from_time);
             serviceEndTime = (TextView) view.findViewById(R.id.service_end_time);
+            serviceCardView = (CardView) view.findViewById(R.id.row_cardView_contract);
         }
     }
 

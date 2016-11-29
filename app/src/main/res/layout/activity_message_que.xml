@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_message_que"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent"
+
+    tools:context="com.example.jakubkalinowski.contractfoxandroid.MessageQue">
+
+
+    <FrameLayout
+        android:id="@+id/msgContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:id="@+id/alllllllll">
+
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:elevation="4dp"-->
+            <!--android:background="#00FF00">-->
+
+        <!--</android.support.v7.widget.Toolbar>-->
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:minHeight="120dp"
+            android:id="@+id/searchNames"
+            android:layout_margin="10dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Search for people"
+            />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_messages"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+           />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/butotnTest"
+            android:text="dummy button"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

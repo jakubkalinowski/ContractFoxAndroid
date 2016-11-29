@@ -1,10 +1,14 @@
 package com.example.jakubkalinowski.contractfoxandroid.Model;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.Map;
 
 /**
  * Created by Ladimer on 9/26/2016.
  */
+
+@IgnoreExtraProperties
 
 public class Review {
 

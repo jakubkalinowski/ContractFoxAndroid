@@ -59,16 +59,16 @@
                     android:layout_height="100dp"
                     android:orientation="horizontal">
 
-                    <!--<de.hdodenhof.circleimageview.CircleImageView-->
-                        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-                        <!--android:id="@+id/profile_image"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:src="@drawable/contract_fox"-->
-                        <!--app:civ_border_width="2dp"-->
-                        <!--app:civ_border_color="#FF000000"-->
-                        <!--android:paddingBottom="5dp"/>-->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/contract_fox"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#FF000000"
+                        android:paddingBottom="5dp"/>
 
 
                     <!--<ImageView-->
@@ -80,31 +80,11 @@
                     <!--android:src="@drawable/profile_picture"-->
                     <!--android:paddingBottom="5dp"/>-->
 
-                    <!--<ImageView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:id="@+id/logo_picture"-->
-                        <!--android:layout_above="@+id/fragment_container"-->
-                        <!--android:src="@drawable/construction_logo"-->
-                        <!--android:paddingBottom="5dp"/>-->
-
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:id="@+id/profile_fragment_picture"
-                        android:layout_above="@+id/fragment_container"
-                        android:src="@drawable/profile_picture"
-                        android:paddingBottom="5dp"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:id="@+id/logo_fragment_picture"
+                        android:id="@+id/logo_picture"
                         android:layout_above="@+id/fragment_container"
                         android:src="@drawable/construction_logo"
                         android:paddingBottom="5dp"/>
@@ -146,22 +126,6 @@
                         android:text="@string/review_amount"/>
                 </LinearLayout>
                 <!-- END OF RATINGS TAB -->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="#3234AD"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:text="@string/brief_description"/>
-
-                <TextView
-                    android:id="@+id/brief_description_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
                 <!-- AVAILABILITY TAB -->
                 <LinearLayout
@@ -269,10 +233,7 @@
                         android:id="@+id/map_container"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp">
-
-                    </FrameLayout>
+                        android:layout_height="match_parent"></FrameLayout>
 
                     <!-- DIVIDER LINE -->
                     <LinearLayout
@@ -345,17 +306,17 @@
 
                 <!-- END OF LOCATION & ADDRESS - MAP FRAGMENT -->
 
-                <!--<Button-->
-                    <!--android:id="@+id/aprofile_message_button"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="30dp"-->
-                    <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
-                    <!--android:layout_marginBottom="@dimen/activity_vertical_margin"-->
-                    <!--android:background="#3234AD"-->
-                    <!--android:text="@string/message_button"-->
-                    <!--android:textColor="#ffffff"-->
-                    <!--android:textAlignment="center"-->
-                    <!--android:textSize="18dp"/>-->
+                <Button
+                    android:id="@+id/aprofile_message_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="#3234AD"
+                    android:text="@string/message_button"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center"
+                    android:textSize="18dp"/>
 
                 <!-- BUTTONS AND FRAGMENT REFERENCES -->
                 <LinearLayout
@@ -379,7 +340,7 @@
                     <LinearLayout
                         android:id="@+id/acall_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:background="#ffffff"
                         android:clickable="true"
                         android:orientation="horizontal">
@@ -387,8 +348,8 @@
                         <ImageView
                             android:id="@+id/call_img"
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"
                             android:src="@drawable/call_icon"/>
 
@@ -396,9 +357,8 @@
                             android:id="@+id/call_text"
                             android:layout_weight="6"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:gravity="center_vertical"
-                            android:autoLink="phone"/>
+                            android:layout_height="30dp"
+                            android:gravity="center_vertical"/>
                     </LinearLayout>
                     <!-- END OF CALL BUTTON & FRAGMENT REFERENCE -->
 
@@ -414,15 +374,15 @@
                     <LinearLayout
                         android:id="@+id/adirections_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:clickable="true"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/directions_img"
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"
                             android:src="@drawable/directions_icon"/>
 
@@ -430,7 +390,7 @@
                             android:id="@+id/directions_text"
                             android:layout_weight="4"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center_vertical"
                             android:text="@string/directions_text"/>
 
@@ -438,7 +398,7 @@
                             android:id="@+id/open_directions"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
                             android:layout_gravity="right"
                             android:text="@string/next_symbol"/>
@@ -458,15 +418,15 @@
                     <LinearLayout
                         android:id="@+id/awebsite_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:clickable="true"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/website_img"
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"
                             android:src="@drawable/website_icon"/>
 
@@ -475,14 +435,14 @@
                             android:id="@+id/website_url"
                             android:layout_weight="4"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center_vertical"   />
 
                         <TextView
                             android:id="@+id/open_website"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
                             android:layout_gravity="right"
                             android:text="@string/next_symbol"/>
@@ -502,15 +462,15 @@
                     <LinearLayout
                         android:id="@+id/askills_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:clickable="true"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/skills_img"
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"
                             android:src="@drawable/skills_icon"/>
 
@@ -518,7 +478,7 @@
                             android:id="@+id/skills_text"
                             android:layout_weight="4"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center_vertical"
                             android:text="@string/skills_text"/>
 
@@ -526,7 +486,7 @@
                             android:id="@+id/open_skills"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
                             android:layout_gravity="right"
                             android:text="@string/next_symbol"/>
@@ -545,15 +505,15 @@
                     <LinearLayout
                         android:id="@+id/areviews_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:clickable="true"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/reviews_img"
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"
                             android:src="@drawable/review_icon"/>
 
@@ -561,7 +521,7 @@
                             android:id="@+id/reviews_text"
                             android:layout_weight="4"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center_vertical"
                             android:text="@string/review_text"/>
 
@@ -569,7 +529,7 @@
                             android:id="@+id/open_reviews"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
                             android:layout_gravity="right"
                             android:text="@string/next_symbol"/>
@@ -585,30 +545,30 @@
 
                     <!-- PICTURE GALLERY BUTTON & FRAGMENT REFERENCE -->
                     <LinearLayout
-                        android:id="@+id/pic_gallery_button"
+                        android:id="@+id/apic_gallery_button"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="30dp"
                         android:clickable="true"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_weight="1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:padding="1dp"/>
                         <!--android:src="@drawable/pic_gallery_icon"/>-->
 
                         <TextView
                             android:layout_weight="4"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center_vertical"
                             android:text="@string/pic_gallery_text"/>
 
                         <TextView
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
                             android:layout_gravity="right"
                             android:text="@string/next_symbol"/>

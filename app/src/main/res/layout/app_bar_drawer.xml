@@ -29,6 +29,7 @@
                android:layout_marginRight="15dp"
                android:textSize="20sp"
                android:hint="Search"
+               android:maxLines="1"
                android:textColor="@android:color/holo_orange_light" />
 
             <Button

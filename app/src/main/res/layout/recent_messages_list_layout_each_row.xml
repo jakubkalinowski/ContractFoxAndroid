@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/row_recentMessage_list_individual_card"
+                                    xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:clickable="true"
+                                    android:foreground="?android:attr/selectableItemBackground">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/md_divider_black"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/chat_project_title_recentchatList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="sample_project_text"
+            android:textSize="16dp"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/last_messae_recieved_recentchatList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chat_project_title_recentchatList"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:text="Last message recieved"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/conversations_view_recipient_name"
+            android:layout_width="wrap_content"
+            android:textSize="16dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="recipient_name"/>
+
+        <TextView
+            android:id="@+id/date_last_message_recieved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/conversations_view_recipient_name"
+            android:text="d_l_m_recieved"/>
+
+        <TextView
+            android:id="@+id/conversations_view_time_last_message_recieved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/date_last_message_recieved"
+            android:text="t_l_m_recieved"/>
+
+
+        <!--<TextView-->
+        <!--android:id="@+id/chat_member_name_1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_below="@id/date_last_message_recieved"-->
+        <!--android:text="member1"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/chat_member_name_2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_below="@id/chat_member_name_1"-->
+        <!--android:text="member2"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

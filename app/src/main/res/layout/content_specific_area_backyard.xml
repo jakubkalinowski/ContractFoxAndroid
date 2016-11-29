@@ -111,7 +111,7 @@
                 android:layout_weight=".33"
                 android:textSize="16dp"
                 android:text="@string/other"
-                android:id="@+id/checkbox_other_backyard"/>
+                android:id="@+id/checkbox_other"/>
 
         </LinearLayout>
 

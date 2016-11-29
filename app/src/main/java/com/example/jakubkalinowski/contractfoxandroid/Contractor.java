@@ -1,11 +1,14 @@
 package com.example.jakubkalinowski.contractfoxandroid;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+@IgnoreExtraProperties
 public class Contractor extends Member {
     private String briefDescription;
     private String companyName;

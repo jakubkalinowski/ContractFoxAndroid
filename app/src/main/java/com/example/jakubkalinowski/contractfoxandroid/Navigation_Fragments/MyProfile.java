@@ -1,8 +1,6 @@
 package com.example.jakubkalinowski.contractfoxandroid.Navigation_Fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,18 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.jakubkalinowski.contractfoxandroid.Contractor;
 import com.example.jakubkalinowski.contractfoxandroid.Homeowner;
-import com.example.jakubkalinowski.contractfoxandroid.PicGalleryActivity;
+import com.example.jakubkalinowski.contractfoxandroid.Member;
 import com.example.jakubkalinowski.contractfoxandroid.R;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,13 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -66,7 +54,7 @@ public class MyProfile extends Fragment {
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-//    String param = "kj";
+    String param = "kj";
     private static final String TAG = "Firebase_TAG!!" ;
     //[Firebase_variable]**
     private FirebaseAuth mAuth;
@@ -76,47 +64,18 @@ public class MyProfile extends Fragment {
             .getReference();
 
     private OnFragmentInteractionListener mListener;
-//    private Member m;
+    private Member m;
 
     //UI component variables
-
+    private Button estimateButton, messageButton;
     private TextView address, phoneNumber, companyName, website, emailAddress, fullName, miles;
-    private LinearLayout callButton, directionsButton, websiteButton, skillsButton, reviewsButton,
-            galleryButton;
-
-    private Button mAddImageToGallery;
-
-    // picture gallery storage reference
-//    private StorageReference mStorageReference;
-    private StorageReference mProfilePicPath;
-    private StorageReference mLogoImagesPath;
-
-    //progress dialog
-    private ProgressDialog mProgressDialog;
-
-    private ImageView mImageView1, mImageView2, mImageView3, mImageView4;
-
-    private ImageView profilePicture, logoPicture;
-
-    // integer for request code
-    private static final int GALLERY_INTENT = 2;
+    private LinearLayout callButton, directionsButton, websiteButton, skillsButton, reviewsButton;
 
     //imageView
     private CircleImageView mCircleProfileImageView;
     private Bitmap mProfileImageBitmap;
 
-    Boolean isContractor;
 
-
-    private String contractorID;
-
-
-
-    private FirebaseStorage storage;
-    private StorageReference storageRef;
-    private StorageReference galleryImg;
-//    private StorageReference pathReference = storageRef.child("Before&AfterPictureGallery/1.jpg");
-    private StorageReference filePath;
     public MyProfile() {
         // Required empty public constructor
     }
@@ -140,14 +99,8 @@ public class MyProfile extends Fragment {
     }
 
     @Override
-    public void onCreate(final Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        storage = FirebaseStorage.getInstance();
-//        storageRef = storage.getReferenceFromUrl("gs://contract-fox.appspot.com ");
-//        galleryImg = storageRef.child("Before&AfterPictureGallery/"+contractorID);
-
-        isContractor = true;
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -155,44 +108,9 @@ public class MyProfile extends Fragment {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                contractorID = user.getUid().toString();
-
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                    storage = FirebaseStorage.getInstance();
-//                    storageRef = storage.getReferenceFromUrl("gs://contract-fox.appspot.com ");
-                    galleryImg = storage.getReference("Before&AfterPictureGallery/"+contractorID);
-
-                    // Download profile picture
-                    mProfilePicPath = FirebaseStorage.getInstance().getReference("ProfilePictures/"+contractorID+"/profilepic.jpeg");
-                    mLogoImagesPath = FirebaseStorage.getInstance().getReference("LogoImages/"+contractorID+"/logoimg.jpeg");
-//                    mProfilePicPath = FirebaseStorage.getInstance().getReference("users/"+contractorID);
-//                    mProfilePicPath = FirebaseStorage.getInstance().getReference("users/"+contractorID+"/profilePicture.jpeg");
-//                    String profilePic = mProfilePicPath.getDownloadUrl().toString();
-//                    Picasso.with(getActivity()).load(profilePic).into(profilePicture);     TESTING
-
-                    Glide.with(getActivity())
-                            .using(new FirebaseImageLoader())
-                            .load(mProfilePicPath)
-                            .into(profilePicture);
-
-                    Glide.with(getActivity())
-                            .using(new FirebaseImageLoader())
-                            .load(mLogoImagesPath)
-                            .into(logoPicture);
-
-
-                    // Download logo picture
-//                    mLogoImagesPath = FirebaseStorage.getInstance().getReference("logoImages/"+contractorID);
-////                    mLogoImagesPath = FirebaseStorage.getInstance().getReference("logoImages/"+contractorID+"/logo.jpeg");
-//                    String logo = mLogoImagesPath.getDownloadUrl().toString();
-//                    Picasso.with(getActivity()).load((logo)).into(logoPicture);
-
-                    // Download picture gallery
-//                    mStorageReference = FirebaseStorage.getInstance().getReference("Before&AfterPictureGallery");
-
-                    // Download profile info
                     mFirebaseDatabaseReference
                             .child("users").child(user.getUid().toString())
                             .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -201,24 +119,22 @@ public class MyProfile extends Fragment {
                                     if (dataSnapshot.child("contractorOption").getValue().equals(true)){
 
                                         //need null handlers here
-                                        Contractor m = dataSnapshot.getValue(Contractor.class);
+                                        Contractor m = (Contractor)dataSnapshot.getValue(Contractor.class);
 
                                         address.setText(m.getAddress().toString());
                                         phoneNumber.setText(m.getPhoneNo());
-                                        companyName.setText(m.getCompanyName());
+                                        companyName.setText(m.getBusinessWebsiteURL());
                                         website.setText(m.getBusinessWebsiteURL());
                                         //miles.setText();
-                                        isContractor = true;
+
 
                                     }
                                     else{
-                                        Homeowner m = dataSnapshot.getValue(Homeowner.class);
+                                        Homeowner m = (Homeowner)dataSnapshot.getValue(Homeowner.class);
 
                                         address.setText(m.getAddress().toString());
                                         phoneNumber.setText(m.getPhoneNo());
                                         //fullName.setText(m.getFullName().toString());
-
-                                        isContractor = false;
                                     }
                                 }
                                 @Override
@@ -233,22 +149,13 @@ public class MyProfile extends Fragment {
                 // ...
             }
         };
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View root;
-
-//        if (isContractor == true) {
-
-            root = inflater.inflate(R.layout.fragment_contractor_profile, container, false);
-//        }else {
-//            root = inflater.inflate(R.layout.fragment_homeowner_profile, container, false);
-//        }
+        View root = inflater.inflate(R.layout.fragment_contractor_profile, container, false);
 //        View root = inflater.inflate(R.layout.activity_contractor_profile, container, false);
         //TODO: fetch contractorOption from DB to set the if statement
 //        View root;
@@ -317,90 +224,12 @@ public class MyProfile extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        profilePicture = (ImageView)view.findViewById(R.id.profile_fragment_picture);
-        logoPicture = (ImageView)view.findViewById(R.id.logo_fragment_picture);
-
         address = (TextView) view.findViewById(R.id.address_string);
         companyName = (TextView) view.findViewById(R.id.company_name);
         phoneNumber = (TextView) view.findViewById(R.id.call_text);
         website = (TextView) view.findViewById(R.id.website_url);
         fullName = (TextView) view.findViewById(R.id.full_name);
 
-        mAddImageToGallery = (Button)view.findViewById(R.id.add_image_to_gallery_button);
-        websiteButton = (LinearLayout) view.findViewById(R.id.website_button);
-        skillsButton = (LinearLayout) view.findViewById(R.id.skills_button);
-        reviewsButton = (LinearLayout) view.findViewById(R.id.reviews_button);
-        galleryButton = (LinearLayout) view.findViewById(R.id.pic_gallery_button);
-
-//        mImageView1 = (ImageView) view.findViewById(R.id.gallery_image1);
-//        mImageView2 = (ImageView) view.findViewById(R.id.gallery_image2);
-//        mImageView3 = (ImageView) view.findViewById(R.id.gallery_image3);
-//        mImageView4 = (ImageView) view.findViewById(R.id.gallery_image4);
-
-        mProgressDialog = new ProgressDialog(getActivity());
-
-        galleryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), PicGalleryActivity.class);
-                i.putExtra("id", contractorID);
-                startActivity(i);
-            }
-        });
-
-        mAddImageToGallery.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-
-                Intent i = new Intent(Intent.ACTION_PICK);
-
-                i.setType("image/*");
-
-                startActivityForResult(i, GALLERY_INTENT);
-            }
-        });
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-
-        if (requestCode == GALLERY_INTENT && resultCode == RESULT_OK){
-
-            mProgressDialog = ProgressDialog.show(getActivity(), "Uploading ...", "Please wait...", true);
-            mProgressDialog.show();
-
-            Uri uri = data.getData();
-
-            //TODO: add random name instead of last path .child(uri.getLastPathSegment())
-//            final StorageReference filePath = mStorageReference.child("Before&AfterPictureGallery")
-//                    .child(contractorID).child(uri.getLastPathSegment());
-//            StorageReference filePath = galleryImg.child(contractorID);
-
-                    //TODO: add picture to the list not on top of another
-
-            filePath = galleryImg.child("img");
-
-            filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                    mProgressDialog.dismiss();
-
-                    Intent i = new Intent(getActivity().getApplicationContext(), PicGalleryActivity.class);
-                    i.putExtra("id", contractorID);
-
-                    startActivity(i);
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-        }
-    }
 }

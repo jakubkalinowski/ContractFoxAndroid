@@ -718,7 +718,7 @@ public class RegisterContractorFragment extends Fragment {
         String companyName = mCompanyEditText.getText().toString().trim();
         if (companyName.isEmpty() || companyName.equals("")) {
             mCompanyWrapper.setError(getString(R.string
-                    .register_contractor_fragment_companyName_error));
+                    .register_contractor_fragment_lastName_error));
             requestFocus(mCompanyEditText);
             return false;
         } else {

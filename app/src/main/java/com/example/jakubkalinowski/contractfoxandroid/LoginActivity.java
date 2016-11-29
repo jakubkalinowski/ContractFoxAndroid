@@ -2,6 +2,7 @@ package com.example.jakubkalinowski.contractfoxandroid;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -128,6 +129,9 @@ public class LoginActivity extends AppCompatActivity {
         mSignInButton = (Button) findViewById(R.id.sign_in_button_login_activity);
         mRegisterButton = (Button) findViewById(R.id.register_button_login_activity);
 
+        mSignInButton.setTextColor(Color.WHITE);
+        mRegisterButton.setTextColor(Color.BLACK);
+
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 ////                        if (authData.getProviderData().containsKey("displayName")) {
 ////                            map.put("displayName", authData.getProviderData().get("displayName").toString());
 ////                        }
-////                        FBref.child("users").child(authData.getUid()).setValue(map);
+////                        FBref.child("usersInChat").child(authData.getUid()).setValue(map);
 //                        //
 //
 //                        Intent i = new Intent(LoginActivity.this, DrawerActivity.class);

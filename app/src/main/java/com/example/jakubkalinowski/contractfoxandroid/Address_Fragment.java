@@ -80,7 +80,7 @@ public class Address_Fragment extends Fragment implements OnConnectionFailedList
     //registerButton
     private Button mRegisterButton;
 
-    //Strings from previous framgents--> both kind of users have this
+    //Strings from previous framgents--> both kind of usersInChat have this
     private String mEmailValueFromPrevious;
     private String mPasswordValueFromPrevious;
     private String mFirstNameValueFromPrevious;
@@ -230,7 +230,7 @@ public class Address_Fragment extends Fragment implements OnConnectionFailedList
 
         //
         mProfileImageStorageRef = mStorage.getReferenceFromUrl
-                ("gs://contract-fox.appspot.com/users/");
+                ("gs://contract-fox.appspot.com/usersInChat/");
 
 
         //setting the authlister always listening for changes
@@ -250,7 +250,7 @@ public class Address_Fragment extends Fragment implements OnConnectionFailedList
                         Member new_homeOwner_member = new Homeowner(mFirstNameValueFromPrevious,
                                 mLastNameValueFromPrevious, mEmailValueFromPrevious,
                                 mPhoneValueFromPrevious, mContractorBooleanValueFromPrevious, address);
-                        mDatabase.child("users").child(signedIn_userID_key).
+                        mDatabase.child("usersInChat").child(signedIn_userID_key).
                                 setValue(new_homeOwner_member);
                         mDatabase.child("user_addresses").child(signedIn_userID_key).setValue(address);
                     } else {
@@ -266,7 +266,7 @@ public class Address_Fragment extends Fragment implements OnConnectionFailedList
                                 mContractorDescriptionValueFromPrevious,
                                 skillset,
                                 mContractorWebsiteValueFromPrevious);
-                        mDatabase.child("users").child(signedIn_userID_key).
+                        mDatabase.child("usersInChat").child(signedIn_userID_key).
                                 setValue(new_contractor_member);
 
                         mDatabase.child("user_addresses").child(signedIn_userID_key).setValue(address);
@@ -277,7 +277,7 @@ public class Address_Fragment extends Fragment implements OnConnectionFailedList
                     //The picture requested, this section of code is from firebase website
                     //This piece of code below applies to both contractor and homeOwner
                     mProfileImageStorageRef = mStorage.getReferenceFromUrl
-                            ("gs://contract-fox.appspot.com/users/" + signedIn_userID_key +
+                            ("gs://contract-fox.appspot.com/usersInChat/" + signedIn_userID_key +
                                     "/profilePicture.jpg");
                     //2 lines of code below essentially uploads image to firebase.
                     UploadTask uploadTask = mProfileImageStorageRef.
