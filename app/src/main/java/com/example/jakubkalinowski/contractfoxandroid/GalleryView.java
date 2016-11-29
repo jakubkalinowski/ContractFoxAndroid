@@ -36,7 +36,7 @@ public class GalleryView extends AppCompatActivity {
 //        contractorID = getIntent().getExtras().getString("id");
         Log.i("contID-:", contractorID);
 
-        lastGalleryImg = FirebaseStorage.getInstance().getReference("Before&AfterPictureGallery/"+contractorID);
+//        lastGalleryImg = FirebaseStorage.getInstance().getReference("Before&AfterPictureGallery/"+contractorID);
 
         galleryImg = FirebaseStorage.getInstance().getReference("Before&AfterPictureGallery/"+contractorID);
 
